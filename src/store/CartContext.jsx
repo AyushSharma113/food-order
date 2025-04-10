@@ -26,7 +26,7 @@ function cartReducer(state, action){
             updateItems.push({...action.item, quantity: 1})
         }
         
-
+        console.log(updateItems)
         return {
             ...state,
             items: updateItems
@@ -59,7 +59,7 @@ function cartReducer(state, action){
 }
 
 
-export function cartContextProvider({ children }) {
+export function CartContextProvider({ children }) {
     const [cart, dispatchCartAction] = useReducer(cartReducer, {items: []});
 
 
