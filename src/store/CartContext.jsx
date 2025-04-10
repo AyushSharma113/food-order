@@ -59,7 +59,7 @@ function cartReducer(state, action){
 }
 
 
-function CartContextProvider({ children }) {
+export function cartContextProvider({ children }) {
     const [cart, dispatchCartAction] = useReducer(cartReducer, {items: []});
 
 
@@ -84,3 +84,5 @@ function CartContextProvider({ children }) {
     
 }
 
+
+export default CartContext;
