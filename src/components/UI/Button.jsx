@@ -7,4 +7,4 @@ export default function Button({ children, textOnly, className, ...props }) {
         {children}
       </button>
     );
-  }
+}
