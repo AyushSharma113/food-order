@@ -12,7 +12,7 @@ export default function Checkout() {
 
     const cartTotal = cartCtx.items.reduce(
         (totalPrice, item) => totalPrice + item.quantity * item.price, 0
-    )
+    );
     
     function handleClose(){
         userProgressCtx.hideCheckout();
@@ -24,6 +24,19 @@ export default function Checkout() {
 
        const fd = new FormData(event.target);
         const customerData = Object.fromEntries(fd.entries())
+        
+        fetch('http://localhost:3000/orders', {
+            method: 'POST',
+            headers: {
+                'content-Type' : 'application/json'
+            },
+            body: JOSN.stringify({
+                order: {
+                    items: cartCtx.items,
+                    customer: customerData
+                }
+            })
+        })
         
     }
     
